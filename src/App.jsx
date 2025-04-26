@@ -61,15 +61,16 @@ export default function MyMinuteTimer() {
         {Math.floor(time / 60)}:{String(time % 60).padStart(2, '0')}
       </h2>
 
-      <div>
-        <button onClick={handleStart}>Start</button>
-        <button onClick={() => setIsRunning(false)}>Pause</button>
-        <button onClick={() => {
-          setTime(inputMinutes * 60);
-          setIsRunning(false);
-        }}>Reset</button>
-      </div>
+   export default function App() {
+  return (
+    <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+      <img
+        src="/logo.png"
+        alt="MyMinuteTimer Logo"
+        style={{ height: '64px', marginBottom: '1rem' }}
+      />
+      <h1>Hello from MyMinuteTimer!</h1>
     </div>
   );
 }
-
+ 
