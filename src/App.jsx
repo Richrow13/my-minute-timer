@@ -62,6 +62,10 @@ export default function App() {
         <button onClick={resetTimer} style={btnStyle}>
           Reset
         </button>
+<button onClick={toggleDarkMode} style={btnStyle}>
+  {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+</button>
+
       </div>
     </div>
   );
