@@ -4,6 +4,9 @@ export default function MyMinuteTimer() {
   const [time, setTime] = useState(60);
   const [isRunning, setIsRunning] = useState(false);
   const [inputMinutes, setInputMinutes] = useState(1);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('darkMode') === 'true';
+  });
 
   useEffect(() => {
     let timer;
@@ -22,8 +25,26 @@ export default function MyMinuteTimer() {
     setIsRunning(true);
   };
 
+  const toggleDarkMode = () => {
+    setDarkMode(prev => {
+      localStorage.setItem('darkMode', !prev);
+      return !prev;
+    });
+  };
+
   return (
-    <div style={{ textAlign: 'center', marginTop: '5rem' }}>
+    <div style={{
+      textAlign: 'center',
+      marginTop: '5rem',
+      backgroundColor: darkMode ? '#111' : '#fff',
+      color: darkMode ? '#fff' : '#000',
+      minHeight: '100vh',
+      padding: '1rem'
+    }}>
+      <button onClick={toggleDarkMode} style={{ marginBottom: '1rem' }}>
+        {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
+      </button>
+
       <h1>MyMinuteTimer</h1>
 
       <div>
@@ -51,3 +72,4 @@ export default function MyMinuteTimer() {
     </div>
   );
 }
+
